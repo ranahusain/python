@@ -34,3 +34,16 @@ print(full)
 # while working with this we can put any valid expression b/w them
 # full = f"{len(first)} {2+2}"
 # print(full)
+
+#String Methods
+
+course = "   Python Programming   "
+print(course.upper())
+print(course.lower())
+print(course.strip()) #remove the white spaces we have rstrip and lstrip
+print(course.find("Pro")) #finds the index of P
+print(course.replace("P","J")) #replaces p with j
+print("Pro" in course)  #find "pro" in our string boolean true or false
+print("Pro" not in course)  #find "pro" in our string boolean true or false
+
+print(course)
