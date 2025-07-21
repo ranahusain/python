@@ -1,104 +1,88 @@
 #Everything in Python is an Object 5 is made from int class and 5 is an object "Hello" is from str class so "Hello" is an object 
 
-for number in range(3):                 #starts from 0 
-  print("Number")
+def greets():
+  print("Hi There !")
+  print ("Welcome Aboard")
 
-for number in range(3):
-  print("Number : " , number)           #can print the iterator like this
-
-
-for number in range(3):
-  print("Number : " ,f"[{number+1}]" )  #Output: Number: [1] 
+greets()
 
 
+#difference b/w argument and parameter parameter is input defined for function greet(x,y) 
+# where argument is actual value given for argument ("Hussain","Ashraf")
 
-for number in range(1,3):               #start from 1 go till < 3
-  print("Number : " ,f"[{number}]" )    #Output: Number: [1] 
-
-
-for number in range(1,10,2):            #start from 1 till <10 with a step of 2
-  print(number, (number * "." ))        #ouput: 1 3 5 7 9 
-
-
-# Loop and if else
-
-success = False
-
-for number in range(3):
-    print("Attempt Number : ", number )
-    if success == True:
-      print("Success is true")
-      break
-else:
-  print("Attempted " , number + 1 , " times")
+def greet(first_name,last_name):
+  print(f"Hello {first_name} {last_name} !")
+  print ("Welcome Aboard")
 
 
+first_input = input("First Name : ")
+second_input = input("Last Name : ")
 
-for x in range(3):
-  for y in range(3):
-    print(f"{x} , {y}")
-
-
-# Iterables in Python
-
-# range is a iterable and many others like string lists and custom objects
-
-# print(type(5))          you will get int class
-# print(type(range(5)))   you will get range class , range class is iterable 
-
-for x in range(5):
-  print(x)
-for x in "Python":
-  print(x)
-# p
-# y
-# t
-# h
-# o 
-# n 
-
-for x in [1,2,3]:
-  print(x)  
-
-# 1
-# 2
-# 3
+greet(first_input,second_input)
 
 
-
-# while loop
-
-no = 100
-while no > 0:
-  print(no)
-  no //= 2
+#two types of function
+# perform a task
+# return a value
 
 
-# loop termination on sepeicfic condition
+def greet(name):
+    print(f"Hello, {name}!")  # Just performs a task
 
-command = ""
-while command != "quit":
-  command = input(">> ")
-  print("You entered : " , command)
+greet("Alice")
 
 
-# command = ""
-while command.lower() != "quit":    #for comparison when the use entered somthing print as it is and then compare it with to condition by lowercasing it
-  command = input(">> ")
-  print("You entered : " , command)
+def add(a, b):
+    return a + b  # Returns a value
+
+result = add(5, 3)        #by doing this fucntion value can be used anywhere
+print("Sum is:", result)
 
 
-# infinite loop
+# example of using a function that return a value
 
-while True:
-  command = input(">>")
-  print("You Entered : " , command)
-  if command.lower() == "quit":
-    break
+result = add(5,3)
+file = open("context.txt","w")
+file.write(str(result))
+file.close()
 
-count = 0 
-for number in range(1,10):
-  if number % 2 == 0:
-    count += 1
-    print(number)
-print(f"We have {count} even numbers")
+
+# all functions by default return none (none means there is a absence of value) 
+# unless we specifically return a value 
+
+print(greet("Alice")) # what will be the output ?  here we have used no return    ==> none
+print(add(5,3))       # what will be the output ?  here we have used return       ==> 8
+
+
+def increment(number,by):
+   return number+by
+
+print(increment(2,1))     #python will call the function inside print and store the result in a temporary variable that we dont see and then print it 
+
+
+# how to make parameter option
+
+def increment(number,by=1):
+   return number+by
+
+print(increment(2))  # passing only one argument and other it takes by default, defualt parameters should at last in list
+
+def increment(number,by=1):
+   return number+by
+                      # here we overide the default value by 5
+print(increment(2,5))  
+
+
+
+def multiply(*numbers):  # *numbers allows you to pass any number of arguments.
+    print(numbers)       # you'll see all packed like list
+
+multiply(2,3,4,5)
+
+def multiply(*numbers):  # *numbers allows you to pass any number of arguments.
+    total = 1
+    for number in numbers:
+       total *= number
+    return total
+
+print(multiply(2,3,4,5))
